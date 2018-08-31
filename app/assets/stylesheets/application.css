@@ -15,12 +15,24 @@
  */
 
 body {
-	text-align: center;
-	margin-top: 200px;
 	font: 16px/14px Tahoma, Verdana, sans-serif
 }
 
-input {
-	margin: 5px;
+input, textarea {
 }
 
+#navbar {
+	float: right;
+	display: inline-block;
+}
+
+.notice, .alert {
+	margin-right: 20px;
+}
+
+.notice {
+	color: blue;
+}
+
+.alert {
+	color: red;}

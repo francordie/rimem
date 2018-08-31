@@ -10,8 +10,12 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <navbar id="navbar">
+      <span class="notice"><%= notice %></span><span class="alert"><%= alert %></span>
+      <%= render 'shared/navbar' %> 
+    </navbar>
+    
     <%= yield %>
+    <%= debug params %>
   </body>
 </html>
