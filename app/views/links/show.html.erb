@@ -1,7 +1,4 @@
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
+<h1>Link: <%= @link.title %></h1>
 
 <p>
   <strong>Desc:</strong>
@@ -21,6 +18,13 @@
 <p>
   <strong>User:</strong>
   <%= @link.user.email %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <% @link.tag_list.each do |tag| %>
+    <%= link_to tag, tag_path(tag) %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |

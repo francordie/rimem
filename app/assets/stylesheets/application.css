@@ -35,4 +35,23 @@ input, textarea {
 }
 
 .alert {
-	color: red;}
+	color: red;
+}
+
+.centered {
+	text-align: center;
+}
+
+a.btn {
+	border: 1px;
+	background-color: green;
+	color: white;
+	padding: 5px;
+	margin: 1px;
+	text-decoration: none;
+}
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }

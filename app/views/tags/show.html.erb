@@ -1,0 +1,9 @@
+<h1>Links tagged with (<%= params[:tag] %>)</h1>
+
+<ul>
+	<% @links.each do |link| %>
+		<li><%= link_to link.title, link %></li>
+	<% end %>
+</ul>
+
+<%= link_to 'Tags list', tags_path %>
