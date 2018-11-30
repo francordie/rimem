@@ -1,13 +1,13 @@
 <h1>Tag list</h1>
 
 <ul>
-	<% ActsAsTaggableOn::Tag.all.each do |tag| %>
-		<li><%= link_to tag.name, tag_path(tag.name) %> (<%= tag.taggings_count %>)</li>
+	<% ActsAsTaggableOn::Tag.all.each do |tag_item| %>
+		<li><%= link_to "#{tag_item.name} (#{tag_item.taggings_count})", tag_path(tag_item.name), class: 'light-blue white-text btn badge ' %></li>
 	<% end %>
 </ul>
 
 <h2>Tag Cloud</h2>
 
-<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-  <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag_item, css_class| %>
+  <%= link_to "#{tag_item.name} (#{tag_item.taggings_count})", tag_path(tag_item.name), class: css_class + ' btn badge light-blue white-text' %>
 <% end %>

@@ -3,40 +3,40 @@
     <div id="error_explanation">
       <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
 
-      <ul>
-      <% link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+      <ul class='ul-unstyled'>
+        <% link.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'validate' %>
   </div>
 
   <div class="field">
     <%= form.label :tag_list %>
-    <%= form.text_field :tag_list %>
+    <%= form.text_field :tag_list, class: 'validate' %>
   </div>
 
   <div class="field">
     <%= form.label :url %>
-    <%= form.url_field :url %>
+    <%= form.url_field :url, class: 'validate' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'validate materialize-textarea' %>
   </div>
 
   <div class="field">
-    <%= form.label :public %>
     <%= form.check_box :public %>
+    <%= form.label :public %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save link', class: 'btn' %>
   </div>
 <% end %>

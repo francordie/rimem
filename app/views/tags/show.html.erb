@@ -1,9 +1,10 @@
-<h1>Links tagged with (<%= params[:tag] %>)</h1>
+<h1>Links tagged with [<%= params[:tag] %>]</h1>
+<p>Showing <%= @links.size %> link </p>
 
 <ul>
 	<% @links.each do |link| %>
-		<li><%= link_to link.title, link %></li>
+		<li><%= link_to link.title, link %> | <%= link.description %></li>
 	<% end %>
 </ul>
 
-<%= link_to 'Tags list', tags_path %>
+<%= link_to 'Back to tags list', tags_path, class: 'btn btn-flat' %>

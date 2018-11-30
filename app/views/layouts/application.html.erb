@@ -5,17 +5,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <navbar id="navbar">
-      <span class="notice"><%= notice %></span><span class="alert"><%= alert %></span>
-      <%= render 'shared/navbar' %> 
-    </navbar>
+    <%= render 'shared/navbar' %>
+    <div class="container">
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <%= debug params if Rails.env.development? %>
+    </div>
     
-    <%= yield %>
-    <%= debug params %>
   </body>
 </html>

@@ -26,7 +26,7 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     @link = current_user.links.new(link_params)
-
+    @link.tag_list = link_params[:tag_list].split(',').map(&:parameterize)
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }

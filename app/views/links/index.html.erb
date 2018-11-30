@@ -2,7 +2,7 @@
 
 <p><%= link_to 'New Link', new_link_path, class: 'btn' %></p>
 
-<table>
+<table class="striped centered">
   <thead>
     <tr>
       <th>Title</th>
@@ -17,15 +17,18 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link.title %></td>
+        <td><%= link_to link.title, link.url, target: '_blank', class: :tooltipped, data: { tooltip: "##{link.id}" } %></td>
         <td><%= link.description %></td>
         <td><%= link.public %></td>
         <td><%= link.user.email %></td>
-        <td><%= link.tag_list %></td>
-        <td><%= link_to 'Visit', link.url, target: '_blank' %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% link.tag_list.each do |tag_name| %>
+            <%= link_to tag.span(tag_name, class: 'badge white-text light-blue'), tag_path(tag_name) %>
+          <% end %>
+        </td>
+        <td><%= link_to '<i class="material-icons">info_outline</i>'.html_safe, link %></td>
+        <td><%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_link_path(link), class: :tooltipped, data: { tooltip: 'Editar' }%></td>
+        <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, link, class: 'tooltipped', method: :delete, data: { tooltip: 'Eliminar', confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

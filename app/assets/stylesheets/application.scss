@@ -21,30 +21,17 @@ body {
 	font: 16px/14px Tahoma, Verdana, sans-serif
 }
 
-input, textarea {
-}
-
-// #navbar {
-// 	float: right;
-// 	display: inline-block;
-// }
-
 .notice, .alert {
 	margin-right: 20px;
-}
-
-.notice {
-	color: blue;
-}
-
-.alert {
-	color: red;
 }
 
 .centered {
 	text-align: center;
 }
 
+.ul-unstyled {
+	list-style-type: none;
+}
 // a.btn {
 // 	border: 1px;
 // 	background-color: green;

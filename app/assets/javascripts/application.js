@@ -13,4 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require materialize
 //= require_tree .
+
+// document.addEventListener("turbolinks:load", function(event) {
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipsInstances = M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
+});
