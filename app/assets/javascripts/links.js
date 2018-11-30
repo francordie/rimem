@@ -8,13 +8,19 @@ function initCheckUrl() {
 	checkUrl.addEventListener('click', function(event){
 		showProgressBar()
 		const linkUrl = document.getElementById('link_url')
-		if (linkUrl.value != "")
+
+		if (linkUrl.value != "") {
 			checkUrl.href = checkUrl.dataset.cleanUrl + '?url=' + linkUrl.value
+			console.log('Check URL: ', linkUrl.value)
+		}
 		else {
 			event.stopPropagation()
 			event.preventDefault()
 		}
 	})
-	if (document.getElementById('link_url').value != '')
+
+	const isNewLink = document.getElementById('new-link-form')
+	if (document.getElementById('link_url').value != '' && isNewLink){
 		document.getElementById('check-url').click()
+	}
 }
