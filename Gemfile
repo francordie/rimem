@@ -8,6 +8,7 @@ gem 'acts-as-taggable-on'
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
 gem 'devise'
+gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'mechanize'
 gem 'materialize-sass', '~> 1.0.0'
