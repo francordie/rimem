@@ -1,0 +1,21 @@
+<div class="card-panel link">
+	<div class="section">
+		<h6><%= link_to link.title, link %></h6>
+		<%= link.description %>
+	</div>
+	<div class="divider"></div>
+  <% if current_user_is_admin? %>
+  	<div class="section right">
+  		<%= link_to '<i class="material-icons">info_outline</i>'.html_safe, link %>
+	  	<%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_link_path(link), class: :tooltipped, data: { tooltip: 'Editar' }%>
+	  	<%= link_to '<i class="material-icons">delete</i>'.html_safe, link, class: 'tooltipped', method: :delete, data: { tooltip: 'Eliminar', confirm: 'Are you sure?' } %>
+			<%= "<i class='material-icons tooltipped' data-tooltip='#{link.user.email}'>person</i>".html_safe if current_user_is_admin? %>
+  	</div>
+  <% end %>
+
+	<div class="section">
+		<% link.tag_list.each do |tag_name| %>
+	    <%= link_to tag_name, tag_path(tag_name), class: 'btn btn-small grey' %>
+	  <% end %>
+	</div>
+</div>

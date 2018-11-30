@@ -1,33 +1,26 @@
 <div class="row">
-  <div class="col s8 offset-s2 centered">
+  <div class="col s8 offset-s2">
     <h3><%= @link.title %></h3>
 
     <p>
-      <%= link_to @link.url, @link.url %>
+      <%= link_to @link.url, @link.url %> (<b><%= @link.public ? 'PUBLIC' : 'PRIVATE' %></b>)
     </p>
 
-    <p>
-      <b>Description:</b>
-      <%= @link.description %>
-    </p>
+    <p><b>Description:</b></p>
+    <p><%= @link.description %></p>
+
+    <p><b>User:</b></p>
+    <p><%= current_user_is_admin? ? @link.user.email : '-' %></p>
 
     <p>
-      <b>User:</b>
-      <%= current_user_is_admin? ? @link.user.email : '-' %>
-    </p>
-
-    <p>
-      <%= @link.public ? 'PUBLIC' : 'PRIVATE' %>
-    </p>
-
-    <p>
-      <b>Tags:</b>
       <% @link.tag_list.each do |tag| %>
-        <%= link_to tag, tag_path(tag) %>
+        <%= link_to tag, tag_path(tag), class: 'btn btn-small' %>
       <% end %>
     </p>
 
-    <%= link_to 'Edit', edit_link_path(@link) %> |
-    <%= link_to 'Back', links_path %>
+    <div class="right">
+      <%= link_to 'Edit', edit_link_path(@link) %> |
+      <%= link_to 'Back', links_path %>
+    </div>
   </div>
 </div>

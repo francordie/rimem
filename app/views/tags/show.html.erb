@@ -3,7 +3,9 @@
 
 <ul>
 	<% @links.each do |link| %>
-		<li><%= link_to link.title, link %> | <%= link.description %></li>
+		<li>
+			<%= render 'links/link', link: link %>
+		</li>
 	<% end %>
 </ul>
 
