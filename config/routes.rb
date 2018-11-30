@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :links
+  resources :links do
+    collection do
+      get :fetch_url, action: :fetch_url
+    end
+  end
   devise_for :users#, controllers: {
       #   sessions: 'users/sessions',
       #   registrations: 'users/registrations'

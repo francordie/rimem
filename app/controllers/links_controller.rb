@@ -15,7 +15,8 @@ class LinksController < ApplicationController
 
   # GET /links/new
   def new
-    @link = Link.new
+    @link = Link.new(url: params[:url])
+    @tags = ActsAsTaggableOn::Tag.most_used
   end
 
   # GET /links/1/edit
@@ -59,6 +60,20 @@ class LinksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def fetch_url
+    begin
+      agent = Mechanize.new(open_timeout: 2)
+      page = agent.get(params[:url])
+      @title = page.title.to_s.strip
+    rescue Exception => e
+      byebug
+      @title = "Error scrapping the site: #{e.message}"
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

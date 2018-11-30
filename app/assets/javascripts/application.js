@@ -16,7 +16,19 @@
 //= require materialize
 //= require_tree .
 
-// document.addEventListener("turbolinks:load", function(event) {
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("turbolinks:load", function(event) {
+// document.addEventListener('DOMContentLoaded', function() {
   var tooltipsInstances = M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
+  initCheckUrl()
+  M.updateTextFields()
 });
+
+function showProgressBar() {
+	const progressBar = document.getElementById('progress-bar')
+	progressBar.classList.remove('hide')
+}
+
+function hideProgressBar() {
+	const progressBar = document.getElementById('progress-bar')
+	progressBar.classList.add('hide')
+}

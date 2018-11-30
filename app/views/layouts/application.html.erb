@@ -15,6 +15,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <div class="container">
+      <div id='progress-bar' class="hide progress">
+        <div class="indeterminate"></div>
+      </div>
       <%= render 'shared/flash' %>
       <%= yield %>
       <%= debug params if Rails.env.development? %>

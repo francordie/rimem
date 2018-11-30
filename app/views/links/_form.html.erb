@@ -11,32 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :title %>
     <%= form.text_field :title, class: 'validate' %>
   </div>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :tag_list %>
     <%= form.text_field :tag_list, class: 'validate' %>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.url_field :url, class: 'validate' %>
+  <div class="row">
+    <div class="input-field col s9">
+      <%= form.label :url %>
+      <%= form.url_field :url, class: 'validate' %>
+    </div>
+
+    <div class="input-field col s3">
+      <%= link_to 'Check URL', fetch_url_links_path, id: 'check-url', class: 'btn', data: { remote: true, clean_url: fetch_url_links_path } %>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :description %>
     <%= form.text_area :description, class: 'validate materialize-textarea' %>
   </div>
 
-  <div class="field">
-    <%= form.check_box :public %>
-    <%= form.label :public %>
+  <div class="input-field">
+    <p>
+      <label>
+        <%= form.check_box :public, class: 'filled-in' %>
+        <span>Public</span>
+      </label>
+    </p>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Save link', class: 'btn' %>
+    <%= form.submit 'Save link', class: 'btn col s12' %>
   </div>
 <% end %>
