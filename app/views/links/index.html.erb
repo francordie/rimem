@@ -17,8 +17,8 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link_to link.title, link.url, target: '_blank', class: :tooltipped, data: { tooltip: "##{link.id}" } %></td>
-        <td><%= link.description %></td>
+        <td><%= link_to truncate(link.title), link.url, target: '_blank', class: :tooltipped, data: { tooltip: "##{link.id} #{link.title}" } %></td>
+        <td class='tooltipped' data-tooltip='<%= "#{link.description}" %>'><%= truncate(link.description, length: 50) %></td>
         <td><%= link.public %></td>
         <td><%= link.user.email if current_user_is_admin? %></td>
         <td>
