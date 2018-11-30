@@ -4,9 +4,8 @@ Rails.application.routes.draw do
       get :fetch_url, action: :fetch_url
     end
   end
-  devise_for :users#, controllers: {
+  devise_for :users, controllers: { registrations: 'users/registrations' }
       #   sessions: 'users/sessions',
-      #   registrations: 'users/registrations'
       #   etc ...
       # }
 
